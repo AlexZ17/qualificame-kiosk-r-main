@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering renders as expected 1`] = `
+<Fragment>
+  <ImageBackground
+    resizeMode="stretch"
+    source={1}
+    style={
+      Array [
+        Object {
+          "position": "absolute",
+        },
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "right": 0,
+        },
+        Object {
+          "zIndex": -1,
+        },
+        Object {
+          "height": 187.5,
+          "width": 1334,
+        },
+        Object {
+          "justifyContent": "flex-end",
+        },
+        Object {
+          "alignItems": "center",
+        },
+        Object {
+          "paddingBottom": 16,
+        },
+      ]
+    }
+  >
+    <Component>
+      <SubtitleText
+        align="center"
+        color="white"
+        text="Tu opinión es muy importante para nosotros"
+        weight=""
+      />
+      <Component
+        style={
+          Object {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <IconText
+          AddHorizontalMargin={true}
+          AddVerticalMargin={false}
+          color="white"
+          iconName="phone"
+          text="771 428 9913"
+        />
+        <IconText
+          AddHorizontalMargin={true}
+          AddVerticalMargin={false}
+          color="white"
+          iconName="mail"
+          text="hola@plazasanjuan.com"
+        />
+      </Component>
+    </Component>
+  </ImageBackground>
+</Fragment>
+`;

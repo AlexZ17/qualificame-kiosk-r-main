@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering renders as expected 1`] = `
+<SafeAreaView>
+  <StatusBar
+    animated={false}
+    barStyle="default"
+    showHideTransition="fade"
+  />
+  <Component
+    style={
+      Array [
+        Object {
+          "height": 64,
+        },
+        undefined,
+        Object {
+          "flexDirection": "row",
+        },
+        Object {
+          "alignItems": "center",
+        },
+        Object {
+          "paddingTop": 0,
+        },
+        Object {
+          "marginHorizontal": 16,
+        },
+      ]
+    }
+  >
+    <Component
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+          undefined,
+        ]
+      }
+    />
+    <Component
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+          Object {
+            "alignItems": "flex-end",
+          },
+        ]
+      }
+    />
+  </Component>
+</SafeAreaView>
+`;

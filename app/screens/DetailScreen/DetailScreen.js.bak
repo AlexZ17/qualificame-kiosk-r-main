@@ -1,0 +1,107 @@
+import React, { useEffect } from 'react';
+import {
+	View,
+	Text,
+	Button,
+	Image,
+	Alert
+} from 'react-native';
+import HeaderNavbar from 'qualificame-kiosk/app/components/HeaderNavbar';
+import HugeText from 'qualificame-kiosk/app/components/HugeText';
+import ChoiceBox from 'qualificame-kiosk/app/components/ChoiceBox';
+import BottomWaves from 'qualificame-kiosk/app/components/BottomWaves';
+
+import styles from './DetailScreenStyle';
+import { NavigationActions } from 'react-navigation';
+
+import ApiService from 'qualificame-kiosk/app/services/ApiService';
+
+export default function DetailScreen(props) {
+	const kiosk = props.navigation.getParam('kiosk');
+
+	useEffect(() => {
+		let timeOut = setTimeout(() => {
+			props.navigation.reset([NavigationActions.navigate({
+				routeName: 'MainScreen'
+			}, {
+				transition: 'collapseExpand'
+			})], 0)
+				//.navigate('', { transition: 'collapseExpand' })
+		}, 20000)
+		return () => {
+			clearTimeout(timeOut);
+		}
+	}, [])
+
+	async function onSelectChoice(choice_id) {
+		try {
+			await ApiService.selectChoice({
+				event_id: props.navigation.getParam('event').id,
+				choice_id
+			});
+			props.navigation.navigate('CompletedScreen', {
+				kiosk,
+				transition: 'collapseExpand',
+			});
+		} catch (e) {
+			Alert.alert('¡Oops! Ocurrió un error', 'Inténtalo más tarde');
+		}
+	}
+
+	let color;
+	let isBad = false;
+	switch (props.navigation.getParam('type')) {
+		case 'excellent':
+			color = 'green';
+			break;
+		case 'average':
+			color = 'blue';
+			break;
+		case 'bad':
+			color = 'orange';
+			isBad = true;
+			break;
+		case 'awful':
+			color = 'pink';
+			isBad = true;
+			break;
+		default:
+			color = 'green';
+	}
+	return (
+		<View style={styles.container}>
+			<HeaderNavbar
+				statusBar='dark-content'
+				center={
+					<Image
+						style={{ width: 130, height: 40 }}
+						resizeMode={'stretch'}
+						source={require('qualificame-kiosk/assets/logo.png')}
+					/>
+				}
+			/>
+			<View style={[styles.container, styles.justifyContentCenter, styles.footerMargin]}>
+				<View style={[styles.flex1, styles.justifyContentCenter]}>
+					<HugeText
+						text={props.navigation.getParam('question').description}
+						align="center"
+					/>
+				</View>
+				<View style={styles.flex2}>
+					<ChoiceBox
+						choices={props.navigation.getParam('choices')}
+						onSelectChoice={onSelectChoice}
+					/>
+				</View>
+			</View>
+			<BottomWaves
+				color={color}
+				email={kiosk.email}
+				phone={kiosk.phone}
+				isBad={isBad}
+			/>
+		</View>
+	);
+}
+
+DetailScreen.navigationOptions = { header: null }

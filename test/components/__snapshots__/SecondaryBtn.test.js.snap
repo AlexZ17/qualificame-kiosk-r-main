@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering renders as expected 1`] = `
+<TouchableOpacity
+  activeOpacity={0.8}
+  disabled={true}
+  onPress={[Function]}
+>
+  <Component
+    style={
+      Array [
+        Object {
+          "width": "100%",
+        },
+        Object {
+          "backgroundColor": "rgba(0,0,0,0)",
+          "borderRadius": 10,
+          "borderWidth": 1,
+          "padding": 8,
+        },
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+        },
+        Object {
+          "borderColor": "#146DCA",
+        },
+      ]
+    }
+  >
+    <BodyText
+      align=""
+      color="blue"
+      text="Hello World"
+      weight="medium"
+    />
+  </Component>
+</TouchableOpacity>
+`;

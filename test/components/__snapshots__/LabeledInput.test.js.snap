@@ -1,0 +1,135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering renders as expected 1`] = `
+<Component
+  style={
+    Array [
+      Object {
+        "borderRadius": 5,
+        "borderTopWidth": 0,
+        "borderWidth": 1,
+        "paddingVertical": 8,
+      },
+      Object {
+        "borderColor": "#14A286",
+      },
+      Object {
+        "marginVertical": 8,
+      },
+      false,
+    ]
+  }
+>
+  <Component
+    style={
+      Array [
+        Object {
+          "flexDirection": "row",
+        },
+        Object {
+          "height": 27,
+        },
+        Object {
+          "alignItems": "center",
+        },
+      ]
+    }
+  >
+    <Component
+      style={
+        Object {
+          "marginLeft": 8,
+        }
+      }
+    >
+      <Icon
+        allowFontScaling={false}
+        color="#14A286"
+        name="moon"
+        size={24}
+      />
+    </Component>
+    <Component
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+          Object {
+            "marginHorizontal": 8,
+          },
+        ]
+      }
+    />
+  </Component>
+  <Component
+    style={
+      Array [
+        Object {
+          "flexDirection": "row",
+        },
+        Object {
+          "position": "absolute",
+          "zIndex": -1,
+        },
+      ]
+    }
+  >
+    <Component
+      style={
+        Array [
+          Object {
+            "borderColor": "#FFFFFF",
+            "borderLeftWidth": 1,
+            "borderRadius": 5,
+            "borderTopWidth": 1,
+            "height": 44,
+            "left": -1,
+            "width": 16,
+          },
+          Object {
+            "borderColor": "#14A286",
+          },
+        ]
+      }
+    />
+    <Component
+      style={
+        Array [
+          Object {
+            "marginHorizontal": 8,
+          },
+          Object {
+            "top": -8,
+          },
+        ]
+      }
+    >
+      <TinyText
+        align=""
+        color="green"
+        text="testing"
+        weight=""
+      />
+    </Component>
+    <Component
+      style={
+        Array [
+          Object {
+            "borderColor": "#FFFFFF",
+            "borderRadius": 5,
+            "borderRightWidth": 1,
+            "borderTopWidth": 1,
+            "flex": 1,
+            "height": 44,
+            "right": -1,
+          },
+          Object {
+            "borderColor": "#14A286",
+          },
+        ]
+      }
+    />
+  </Component>
+</Component>
+`;

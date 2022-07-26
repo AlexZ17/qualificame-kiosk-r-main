@@ -1,0 +1,80 @@
+import React, { Component } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { Provider } from 'react-redux';
+import store from 'qualificame-kiosk/app/Store.js';
+import 'qualificame-kiosk/config/ReactotronConfig'
+import { PersistGate } from 'redux-persist/lib/integration/react';
+import { persistor } from 'qualificame-kiosk/app/Store.js';
+import AppLoading from 'expo-app-loading';
+import * as Font from 'expo-font';
+import { Asset } from 'expo-asset';
+import { Feather } from '@expo/vector-icons';
+
+import NavigationService from 'qualificame-kiosk/app/services/NavigationService.js';
+import AppNavigator from './app/Router';
+
+function cacheFonts(fonts) {
+  return fonts.map(font => Font.loadAsync(font));
+}
+
+export default class App extends Component {
+	state = {
+		isReady: false
+	}
+
+	async _cacheResourcesAsync() {
+		const images = [
+			require('qualificame-kiosk/assets/average.png'),
+			require('qualificame-kiosk/assets/awful.png'),
+			require('qualificame-kiosk/assets/bad.png'),
+			require('qualificame-kiosk/assets/excellent.png'),
+			require('qualificame-kiosk/assets/logo.png'),
+			require('qualificame-kiosk/assets/mainLogo.png'),
+			require('qualificame-kiosk/assets/waves-blue.png'),
+			require('qualificame-kiosk/assets/waves-green.png'),
+			require('qualificame-kiosk/assets/waves-orange.png'),
+			require('qualificame-kiosk/assets/waves-pink.png'),
+			require('qualificame-kiosk/assets/waves-purple.png')
+		];
+
+		const cacheImages = images.map((image) => {
+			return Asset.fromModule(image).downloadAsync();
+		});
+
+		const fontAssets = cacheFonts([Feather.font]);
+
+		return Promise.all([ ...cacheImages, ...fontAssets ]);
+	}
+
+	render() {
+		if(!this.state.isReady) {
+			return (
+				<AppLoading
+					startAsync={this._cacheResourcesAsync}
+					onFinish={() => this.setState({ isReady: true })}
+					onError={console.warn}
+				/>
+			)
+		} else {
+			return (
+				<Provider store={store}>
+					<PersistGate persistor ={persistor}>	
+						<View style={styles.container}>
+						<AppNavigator 
+							ref={navigatorRef => {
+								NavigationService.setTopLevelNavigator(navigatorRef);
+							}}
+						/>
+						</View>
+					</PersistGate>
+				</Provider>
+			)
+		}
+	}
+}
+
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+	},
+});

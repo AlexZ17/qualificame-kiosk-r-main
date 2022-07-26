@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering renders as expected 1`] = `
+<Component
+  style={
+    Array [
+      Object {
+        "flexDirection": "row",
+      },
+      Object {
+        "alignItems": "center",
+      },
+      false,
+      false,
+    ]
+  }
+>
+  <Icon
+    allowFontScaling={false}
+    name="moon"
+    size={29}
+    style={
+      Array [
+        Object {
+          "color": "#EB3F3F",
+        },
+      ]
+    }
+  />
+  <Component
+    style={
+      Object {
+        "marginHorizontal": 8,
+      }
+    }
+  >
+    <BodyText
+      align=""
+      color="red"
+      text="testing"
+      weight=""
+    />
+  </Component>
+</Component>
+`;

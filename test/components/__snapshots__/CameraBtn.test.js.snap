@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering renders as expected 1`] = `
+<TouchableOpacity
+  activeOpacity={0.8}
+  onPress={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#27977F",
+      "borderRadius": 50,
+      "flexDirection": "row",
+      "height": 70,
+      "justifyContent": "center",
+      "padding": 16,
+      "width": 70,
+    }
+  }
+>
+  <Icon
+    allowFontScaling={false}
+    color="white"
+    name="camera"
+    size={35}
+    style={
+      Object {
+        "alignSelf": "center",
+        "width": 35,
+      }
+    }
+  />
+</TouchableOpacity>
+`;

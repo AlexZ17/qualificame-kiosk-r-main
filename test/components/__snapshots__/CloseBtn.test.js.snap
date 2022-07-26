@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering renders as expected 1`] = `
+<TouchableOpacity
+  activeOpacity={0.6}
+  onPress={[Function]}
+>
+  <Icon
+    allowFontScaling={false}
+    color="#FFFFFF"
+    name="x"
+    size={25}
+  />
+</TouchableOpacity>
+`;
