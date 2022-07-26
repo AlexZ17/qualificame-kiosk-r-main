@@ -4,7 +4,6 @@ npm-debug.*
 
 *.jks
 *.p12
-*.env
 *.key
 *.mobileprovision
 .DS_Store
